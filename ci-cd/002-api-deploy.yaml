@@ -10,7 +10,7 @@ steps:
         echo "Current Cloud Build runner public IP is: $(cat runner_ip.txt)"
 
   # Step 2: Authorize the runner's IP in the GKE Cluster Control Plane
-- name: 'gcr.io/cloud-builders/gcloud'
+  - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Authorize Runner IP'
     entrypoint: 'bash'
     args:
