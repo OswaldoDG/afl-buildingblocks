@@ -16,7 +16,7 @@ steps:
     args:
       - '-c'
       - |
-        RUNNER_IP=$(cat runner_ip.txt)
+        $RUNNER_IP=$(cat runner_ip.txt)
         echo "Adding $RUNNER_IP/32 to GKE Authorized Networks..."
         
         # Pull existing authorized networks so we don't overwrite them
