@@ -1,0 +1,27 @@
+steps:
+  # Step 1: Build the Docker image from the Dockerfile in the repository
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Build Docker Image'
+    args: [
+      'build', 
+      '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/afl-bb/afl-bb:$SHORT_SHA', 
+      "-f",
+      "./CloudReportsBuildingBlocksPOC/Dockerfile",
+      '.'
+    ]
+
+  # Step 2: Push the image to GCP Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Push Docker Image'
+    args: [
+      'push', 
+      'us-central1-docker.pkg.dev/$PROJECT_ID/afl-bb/afl-bb:$SHORT_SHA'
+    ]
+
+# Optional: Declare images to explicitly list them in the Cloud Build UI artifacts panel
+images:
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/afl-bb/afl-bb:$SHORT_SHA'
+
+options:
+  # Using user-managed or default service accounts requires setting logging preferences explicitly
+  logging: CLOUD_LOGGING_ONLY
