@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ClientPOC/ClientPOC.csproj" />
+  <Project Path="CloudReportsBuildingBlocksPOC/CloudReportsBuildingBlocksPOC.csproj" />
+  <Project Path="GcfOtdrParser/GcfOtdrParser.csproj" />
+</Solution>

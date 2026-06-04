@@ -1,0 +1,48 @@
+
+# @name FileEvent
+POST http://localhost:8080
+Content-Type: application/cloudevents+json
+
+{
+    "specversion" : "1.0",
+    "type" : "google.cloud.storage.object.v1.finalized",
+    "source" : "//storage.googleapis.com/projects/_/buckets/afl-oswaldo",
+    "id" : "12345",
+    "time" : "2025-01-01T12:00:00Z",
+    "datacontenttype" : "application/json",
+    "data" : {
+        "name" : "reports/batch-20260415184857/DMARC 2203_DMARC 5517_S03_to_D03/DMARC 2203-DMARC 5517-S03 to D03_P00001.atd",
+        "bucket" : "afl-oswaldo",
+        "metageneration" : "1",
+        "timeCreated" : "2025-01-01T12:00:00Z",
+        "updated" : "2025-01-01T12:00:00Z"
+    }
+}
+###
+
+
+
+# @name TopicEvent
+POST http://localhost:8080
+Content-Type: application/cloudevents+json
+
+{
+  "specversion": "1.0",
+  "type": "google.cloud.pubsub.topic.v1.messagePublished",
+  "source": "//pubsub.googleapis.com/projects/your-project/topics/your-topic",
+  "id": "1234567890",
+  "time": "2026-04-28T06:40:14Z",
+  "datacontenttype": "application/json",
+  "data": {
+    "message": {
+      "data": "ewogICAgInByb2plY3RJZCI6ICIxMjMiLAogICAgImJ1Y2tldCI6ICJhZmwtb3N3YWxkbyIsCiAgICAicGF0aCI6ICJyZXBvcnRzL2JhdGNoLTIwMjYwNDE1MTg0MTExIgp9", 
+      "attributes": {
+        "origin": "local-test",
+        "priority": "high"
+      },
+      "messageId": "999999"
+    }
+  }
+}
+###
+

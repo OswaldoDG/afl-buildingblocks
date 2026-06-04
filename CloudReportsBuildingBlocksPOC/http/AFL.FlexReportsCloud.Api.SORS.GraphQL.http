@@ -1,0 +1,115 @@
+# @name DescopeLogin
+POST https://api.descope.com/v1/auth/password/signin
+Authorization: Bearer P39aLGcwuRANLcLwTQDKehljElLJ
+Content-Type: application/json
+
+{
+  "loginId": "",
+  "password": ""
+}
+###
+
+@jwt = {{DescopeLogin.response.body.$.sessionJwt}}
+
+### 
+# @name CreateBatch
+# Create a batch with 2 OTDR files
+POST https://localhost:7141/graphql
+X-REQUEST-TYPE: GraphQL
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+mutation CreateNewBatch($input: CreateBatchInput!) {
+  createBatch(input: $input) {
+    batchResponseDto {
+      id
+      name
+      destinationFolder
+      batchStatus
+      items {
+        id
+        itemId
+        uploadUrl
+      }
+    }
+  }
+}
+
+{
+  "input": {
+    "input": {
+      "name": "Upload_Project_Alpha",
+      "destinationFolder": "/uploads/documents/2026-b",
+      "items": [
+        {
+          "itemId": "1",
+          "fileName": "F01C10A_P00001.atd",
+          "size": 102400
+        },
+        {
+          "itemId": "2",
+          "fileName": "F01C10A_P00002.atd",
+          "size": 5242880
+        }
+      ]
+    }
+  }
+}
+
+###
+
+
+# @name UploadFilesToBucketF1
+PUT https://storage.googleapis.com/afl-oswaldo/uploads/documents/2026-b/F01C10A_P00001.atd?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=poc-afl%40conta-bee.iam.gserviceaccount.com%2F20260413%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260413T205543Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=7c9097be8be9abb0f20f94c24da9a9b9ddd6bf240126d29d98b1aad9b7d3652e5bb39820d4ccb1c93e12b343f0c497ab8d0d69a099b217b5ad5e65711ffc3437b1697d91888c8501416459dcc5bd900b192023b0b71d9b3ad90f1bdc0466e602cbc3cffe40950f100ee8a32ce67f9f656c7b41a9440b696ded2d7d8021f041b3b8ad985cd10222ba419bc599cb71a34c61632288b0701378ba180fc0ba70186e157074e75e82283301b6d013225476a9392b8b3c82e386697bf4895e084ef45055010063c0c8907a7c00c0356a90afffdab8e141a1f11776bdbcd78f6b0ea3f4131da1d7411bb72f68ddeb83737232ecab40310816d1ff2cc58218f8abf2894f
+Content-Type: application/octet-stream
+
+< ./files/F01C10A_P00001.atd
+###
+
+
+# @name UploadFilesToBucketF2
+PUT https://storage.googleapis.com/afl-oswaldo/uploads/documents/2026-b/F01C10A_P00002.atd?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=poc-afl%40conta-bee.iam.gserviceaccount.com%2F20260413%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260413T205543Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=a5aeb6f72e6bd809bd5a48e334a284ef3ed391e36c907aeecabc8d5778c5c856db96d4e72fb1e4f458c07b4834287573e183cd2ab30f56ad21b645eb700805370cbe27b5bd99221bf014f3e843dfbacbb75635fbe1b67efeeba2fbce435d8d5353cc82b20cde9029c487dcaea8bfc7649cea3b3a6618762af455a270a668823aaedf5ec84abe9e132f05454d35a08c94904d1334c1e1b936b36e15d3b89e3ff1427647e41d972bf778156c561995a4e58cf155174602bd950ba98494cbe0f881402515e4e98ddc5757ce5296b797334f48320d47b98d371ae0905de82c2282a2d158bedc2061546c79ff3dcd46cc08f6591dd08925e63ce2242d8b3b0d6da01e
+Content-Type: application/octet-stream
+
+< ./files/F01C10A_P00002.atd
+###
+
+
+### 
+# @name CompleteBatch
+# Complete a batch 
+POST https://localhost:7141/graphql
+X-REQUEST-TYPE: GraphQL
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+mutation FinalizeBatch($input: CompleteBatchInput!) {
+  completeBatch(input: $input) {
+    boolean
+    errors {
+      ... on ArgumentError {
+        message
+        paramName
+      }
+    }
+  }
+}
+
+{
+  "input": {
+    "id": 17,
+    "input": {
+      "id": 17,
+      "items": [
+        {
+          "id": 31
+        },
+        {
+          "id": 32
+        }
+      ]
+    }
+  }
+}
+
+###

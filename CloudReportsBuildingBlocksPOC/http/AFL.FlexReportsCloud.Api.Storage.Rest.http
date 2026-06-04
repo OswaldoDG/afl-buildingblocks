@@ -1,0 +1,76 @@
+# @name DescopeLogin
+POST https://api.descope.com/v1/auth/password/signin
+Authorization: Bearer P39...
+Content-Type: application/json
+
+{
+  "loginId": "@",
+  "password": ""
+}
+
+###
+
+@jwt = {{DescopeLogin.response.body.$.sessionJwt}}
+
+### 
+
+# @name Get content recursively include download URLs
+
+POST https://localhost:7141/api/storage/content
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+"includeDownloadUrl": true,
+"flattened": false,
+"recursive": true,
+"prefix": "/"
+}
+
+###
+
+
+# @name Get content recursively flattened no download urls
+
+POST https://localhost:7141/api/storage/content?flattened=true
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+"includeDownloadUrl": false,
+"flattened": true,
+"recursive": true,
+"prefix": "/"
+}
+
+###
+
+
+# @name Get content non recursively
+
+POST https://localhost:7141/api/storage/content
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+"includeDownloadUrl": false,
+"flattened": false,
+"recursive": false,
+"prefix": "/demo"
+}
+
+###
+
+
+# @name Zip content recursively
+
+POST https://localhost:7141/api/storage/content/zip
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+"recursive": true,
+"prefix": "/"
+}
+
+###

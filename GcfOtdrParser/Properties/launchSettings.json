@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "GcfOtdrParser": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:8080",
+      "commandLineArgs": "--target GcfOtdrParser.AtdParserFromTopicEvent",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development",
+        "DESCOPE_TOKEN": "",
+        "DESCOPE_URL": "https://api.descope.com/v1/auth/password/signin",
+        "DESCOPE_USER": "",
+        "DESCOPE_PASSWORD": "",
+        "OTDR_API_URL": "https://localhost:7141/api/otdr",
+        "OTDRCONNSTRING": ""
+      }
+    }
+  }
+}

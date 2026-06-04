@@ -1,0 +1,102 @@
+# @name DescopeLogin
+POST https://api.descope.com/v1/auth/password/signin
+Authorization: Bearer P39...
+Content-Type: application/json
+
+{
+  "loginId": "@",
+  "password": ""
+}
+
+###
+
+@jwt = {{DescopeLogin.response.body.$.sessionJwt}}
+
+### 
+
+# @name checkHealth
+GET https://localhost:7141/health
+
+###
+
+
+# @name CreateBatch
+
+POST https://localhost:7141/api/sors/batch 
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+"name": "Batch 1",
+"destinationFolder": "/reports/batch1",
+"items": [ 
+  {
+    "itemId": "1",
+    "fileName": "data001.otdr",
+    "size": 1024
+  },
+  {
+    "itemId": "2",
+    "fileName": "data002.otdr",
+    "size": 1024
+  }
+  ]
+}
+
+###
+
+# @name UploadFilesToBucketF1
+PUT https://storage.googleapis.com/afl-oswaldo/reports/batch1/data001.otdr?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=poc-afl%40conta-bee.iam.gserviceaccount.com%2F20260330%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260330T192237Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=3f59d2c7c0d46ee4291c3f2f37647de72cff3acad49f00100f794c0595e6be5daadf8b02f1663d911308245184965aa55c8f961aa99ad8d1e89ad06e508da0bc1238bbeb7b4f46a5b57d54836df9403d7d21636b086ed068f701782667752d43e2f2cabcf14d1cb8e2674ba976b0a263f11faa98c65a4c70a7c6b30b748ac0ccaec8fba4d67dec2599b2b06202ce126870e89217ff262a2af62bab67afc9dbb67a7652aa3aa3c3ea32d596c48e21d05ed0ea3a959d312b3b71b7fcf095528e085dfdb9023e9aca8fd2d577a03411c05f86f632f2cc1b90760bd13c42c3b6c972c1de3e125d74f3fcc0bba9d0a2975fcce9532b9452f4b6941995125889334880
+Content-Type: application/octet-stream
+
+< ./files/F01C10A_P00001.atd
+###
+
+
+# @name UploadFilesToBucketF2
+PUT https://storage.googleapis.com/afl-oswaldo/reports/batch1/data002.otdr?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=poc-afl%40conta-bee.iam.gserviceaccount.com%2F20260330%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260330T192237Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=31da651c9e954dedbcf2c08bdb66431fbe3151f3079cfb95068a41d509b5a91251b10fa476e2757b2338267fa6e3700474568bc17f870783713ff7f8bf7f1b2ce65b00808fa15b9652998071e5b1521080aa05301cd3de1f49e976ef7d5d4af52914acca4a3716bd7b831acaa4f92c78f29bf112168fededf151e27a4197e3ebd168da3ae6373d6381e5d2c0072e934ee453bbc6362e42a175a72eaf554333385f1114683db347da88fde171df8e606e6b59ef531039a21e23b096b1f9ff811b50bb0e5335088d4df7f18403320478ae853c89ac6996b3a3d26553c2cdef2aac6281f4d1e9d27ddc2488dd65e53bd9242b2221f56e85dec0c5ed2de0365cae14
+Content-Type: application/octet-stream
+
+< ./files/F01C10A_P00002.atd
+###
+
+# @name CompleteBatchOK
+POST https://localhost:7141/api/sors/batch/complete/7
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{  
+  "id": 7,
+  "items": [
+    {
+      "id": "11"
+    },
+    {
+      "id": "12"
+    }
+  ]
+ }
+
+###
+
+
+# @name CompleteBatchWithErrors
+POST https://localhost:7141/api/sors/batch/complete/1
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{  
+  "id": 1,
+  "items": [
+    {
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "errored": true,
+      "errorMessage": "File format not supported"
+    }
+  ]
+ }
+
+###

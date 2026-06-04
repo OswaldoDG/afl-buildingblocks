@@ -1,0 +1,76 @@
+# @name DescopeLogin
+POST https://api.descope.com/v1/auth/password/signin
+Authorization: Bearer P39aLGcwuRANLcLwTQDKehljElLJ
+Content-Type: application/json
+
+{
+  "loginId": "",
+  "password": ""
+}
+
+###
+
+@jwt = {{DescopeLogin.response.body.$.sessionJwt}}
+
+### 
+
+# @name Get content flattened with download urls
+
+POST https://localhost:7141/graphql
+X-REQUEST-TYPE: GraphQL
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+query GetContentRecursively {
+  contentEntries(
+    input: {
+      includeDownloadUrl: false,
+      prefix: "/uploads"
+      recursive: true
+      flattened: true
+    }
+  ) {
+    name
+    fullPath
+    parentPath
+    size
+    isFolder
+    lastModificationTime
+    downloadUrl
+  }
+}
+
+###
+
+
+# @name Get content no download URL
+
+POST https://localhost:7141/graphql
+X-REQUEST-TYPE: GraphQL
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+query GetAAAContentRecursively {
+  contentEntries(
+    input: {
+      includeDownloadUrl: false
+      prefix: "/"
+      recursive: true
+      flattened: true
+    }
+  ) {
+    name
+    fullPath
+    parentPath
+    size
+    isFolder
+    lastModificationTime
+    downloadUrl
+  }
+}
+###
+
+
+# @name Zip content recursively
+# Downloading files is not supported in GraphQL.
+###

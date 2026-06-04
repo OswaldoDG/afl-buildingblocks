@@ -1,0 +1,2878 @@
+# @name DescopeLogin
+POST https://api.descope.com/v1/auth/password/signin
+Authorization: Bearer P39...
+Content-Type: application/json
+
+{
+  "loginId": "@",
+  "password": ""
+}
+
+###
+
+@jwt = {{DescopeLogin.response.body.$.sessionJwt}}
+
+### 
+
+# @name checkHealth
+GET https://localhost:7141/health
+
+###
+
+
+# @name upsetATD
+
+POST https://localhost:7141/api/otdr/atd 
+Content-Type: application/json
+
+{
+    "FilePath": "pathinbucket",
+    "Instruments": [
+        {
+            "CalDate": "2025-07-02T17:32:17",
+            "TimeStamp": "2026-01-07T10:57:51",
+            "CreatedOrModified": null,
+            "InstrumentType": null,
+            "Key": "MPO-OLTS-PM:2P23AW014Z",
+            "LocatedAt": "End1",
+            "MainOrRemote": 0,
+            "Model": "MPO-OLTS-PM",
+            "SerialNumber": "2P23AW014Z",
+            "VersionInfos": [
+                {
+                    "InstrumentType": "MPO-OLTS-PM",
+                    "VersionType": 0,
+                    "Version": "1.4.5.0",
+                    "SerialNumber": "2P23AW014Z"
+                }
+            ]
+        },
+        {
+            "CalDate": "2025-08-09T02:10:42",
+            "TimeStamp": "2026-01-07T10:57:51",
+            "CreatedOrModified": null,
+            "InstrumentType": null,
+            "Key": "MPO-OLTS-LS:2P23AX014Z",
+            "LocatedAt": "End2",
+            "MainOrRemote": 1,
+            "Model": "MPO-OLTS-LS",
+            "SerialNumber": "2P23AX014Z",
+            "VersionInfos": [
+                {
+                    "InstrumentType": "MPO-OLTS-LS",
+                    "VersionType": 0,
+                    "Version": "1.4.5.0",
+                    "SerialNumber": "2P23AX014Z"
+                }
+            ]
+        }
+    ],
+    "Jobs": [
+        {
+            "Contractor": null,
+            "Customer": null,
+            "Name": "DMARC 2203",
+            "Routes": [
+                {
+                    "Cables": [
+                        {
+                            "Fibers": [
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 1,
+                                    "FiberNumber2": 16,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.83,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.8,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -8.98,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -4.2,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.84,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.31,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 2,
+                                    "FiberNumber2": 15,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.1,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.44,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -8.61,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -3.76,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.55,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.16,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 3,
+                                    "FiberNumber2": 14,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.16,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.52,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -8.59,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -3.74,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.64,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.05,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 4,
+                                    "FiberNumber2": 13,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.28,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.46,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -8.77,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -3.93,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.61,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.27,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 5,
+                                    "FiberNumber2": 12,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.83,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.54,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -9.24,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -3.99,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.67,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.27,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 6,
+                                    "FiberNumber2": 11,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.49,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.54,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -8.9,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -4.01,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.65,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.31,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 7,
+                                    "FiberNumber2": 10,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.84,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.47,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -9.32,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -4.12,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.56,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.51,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 8,
+                                    "FiberNumber2": 9,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.22,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.58,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -8.59,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -3.83,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.73,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.05,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 9,
+                                    "FiberNumber2": 8,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.73,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.81,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -8.87,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -4.21,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.81,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.35,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 10,
+                                    "FiberNumber2": 7,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.74,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.8,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -8.89,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -4.16,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.84,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.27,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 11,
+                                    "FiberNumber2": 6,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.68,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.65,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -8.98,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -3.96,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.71,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.2,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 12,
+                                    "FiberNumber2": 5,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.55,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.61,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -8.89,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -4.09,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.76,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.28,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 13,
+                                    "FiberNumber2": 4,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.63,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.58,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -9,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -4.13,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.71,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.37,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 14,
+                                    "FiberNumber2": 3,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.79,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.74,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -9,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -4.25,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.72,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.48,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 15,
+                                    "FiberNumber2": 2,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -9.03,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.73,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -9.25,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -4.34,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.78,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.51,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                },
+                                {
+                                    "FiberConnectorTypeOne": "MPO-16",
+                                    "FiberConnectorTypeTwo": "MPO-16",
+                                    "End1PortId": "P00001",
+                                    "End2PortId": null,
+                                    "End1PortNickname": "Port 1",
+                                    "End2PortNickname": null,
+                                    "FiberNumber": 16,
+                                    "FiberNumber2": 1,
+                                    "FiberType": 2,
+                                    "FiberTypeActual": {
+                                        "FiberTypeActual": 2,
+                                        "Name": "OS2",
+                                        "WavelengthGirPair": [
+                                        ]
+                                    },
+                                    "LengthData": {
+                                        "Direction": 0,
+                                        "InstrumentInfo": [
+                                        ],
+                                        "ThresholdDiffMax": 0,
+                                        "ThresholdDiffMin": null,
+                                        "ThresholdState": 3,
+                                        "Length": 119.92,
+                                        "Unit": 3
+                                    },
+                                    "MandrelData": null,
+                                    "NumberOfConnections": 2,
+                                    "NumberOf2ndConnections": 0,
+                                    "NumberOf3rdConnections": 0,
+                                    "NumberOf4thConnections": 0,
+                                    "NumberOfSplices": 0,
+                                    "Operator": null,
+                                    "Operator2": null,
+                                    "Readings": [
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -8.88,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.7,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -9.13,
+                                            "Wavelength": 1310,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        },
+                                        {
+                                            "Direction": 1,
+                                            "InstrumentInfo": [
+                                                {
+                                                    "CalDate": "2025-07-02T17:32:17",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-PM:2P23AW014Z",
+                                                    "LocatedAt": "End1",
+                                                    "MainOrRemote": 0,
+                                                    "Model": "MPO-OLTS-PM",
+                                                    "SerialNumber": "2P23AW014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-PM",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AW014Z"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "CalDate": "2025-08-09T02:10:42",
+                                                    "TimeStamp": "2026-01-07T10:57:51",
+                                                    "CreatedOrModified": null,
+                                                    "InstrumentType": null,
+                                                    "Key": "MPO-OLTS-LS:2P23AX014Z",
+                                                    "LocatedAt": "End2",
+                                                    "MainOrRemote": 1,
+                                                    "Model": "MPO-OLTS-LS",
+                                                    "SerialNumber": "2P23AX014Z",
+                                                    "VersionInfos": [
+                                                        {
+                                                            "InstrumentType": "MPO-OLTS-LS",
+                                                            "VersionType": 0,
+                                                            "Version": "1.4.5.0",
+                                                            "SerialNumber": "2P23AX014Z"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "MeasurementStatus": 0,
+                                            "Overflow": null,
+                                            "Reference": -4.01,
+                                            "RefTimeStamp": "2026-01-07T10:01:50",
+                                            "ThresholdDiffMax": 0.77,
+                                            "ThresholdDiffMin": null,
+                                            "ThresholdState": 0,
+                                            "TimeStamp": "2026-01-07T10:57:50",
+                                            "Underflow": null,
+                                            "Units": 1,
+                                            "Value": -4.19,
+                                            "Wavelength": 1550,
+                                            "PowerRuleInfo": null,
+                                            "LossRuleInfo": null,
+                                            "Mode": null
+                                        }
+                                    ],
+                                    "OrlReadings": [
+                                    ],
+                                    "SerializeID": null,
+                                    "TestInDirection": null,
+                                    "TestMethod": {
+                                        "Cord1": null,
+                                        "Cord2": null,
+                                        "Cord3": null,
+                                        "JumperType": 2,
+                                        "Name": null,
+                                        "Type": null
+                                    },
+                                    "ExpectedPolarity": 2,
+                                    "MeasuredPolarity": 2,
+                                    "PolarityPassFail": 0,
+                                    "IsOlts": true
+                                }
+                            ],
+                            "Name": "S03 to D03",
+                            "RulesApplied": [
+                                {
+                                    "LossThresholds": [
+                                        {
+                                            "MinLoss": null,
+                                            "MaxLoss": 0.4,
+                                            "Wavelength": 1310
+                                        },
+                                        {
+                                            "MinLoss": null,
+                                            "MaxLoss": 0.4,
+                                            "Wavelength": 1550
+                                        }
+                                    ],
+                                    "MaxLength": 0,
+                                    "MaxLengthUnit": 0,
+                                    "LossPerConnector": 0.45,
+                                    "LossPer2ndConnector": null,
+                                    "LossPer3rdConnector": null,
+                                    "LossPer4thConnector": null,
+                                    "LossPerSplice": null,
+                                    "LossPerTestCordToTestCord": null,
+                                    "LossPerTestCordToFut": null,
+                                    "Name": "ORACLE 1",
+                                    "FiberType": 2,
+                                    "Description": "MPO 17",
+                                    "LossType": 4,
+                                    "StdType": 0,
+                                    "LossThreshType": 2,
+                                    "PowerUnits": 0,
+                                    "CatType": 4,
+                                    "ActualFiberType": 2,
+                                    "UseType": 0,
+                                    "Version": null,
+                                    "CalculationToUse": 1,
+                                    "LengthThreshType": 0,
+                                    "Editable": null,
+                                    "RuleResult": 3
+                                }
+                            ]
+                        }
+                    ],
+                    "End1": "DMARC 2203",
+                    "End2": "DMARC 5517"
+                }
+            ],
+            "SerializeID": null
+        }
+    ],
+    "Rules": [
+        {
+            "LossThresholds": [
+                {
+                    "MinLoss": null,
+                    "MaxLoss": 0.4,
+                    "Wavelength": 1310
+                },
+                {
+                    "MinLoss": null,
+                    "MaxLoss": 0.4,
+                    "Wavelength": 1550
+                }
+            ],
+            "MaxLength": 0,
+            "MaxLengthUnit": 0,
+            "LossPerConnector": 0.45,
+            "LossPer2ndConnector": null,
+            "LossPer3rdConnector": null,
+            "LossPer4thConnector": null,
+            "LossPerSplice": null,
+            "LossPerTestCordToTestCord": null,
+            "LossPerTestCordToFut": null,
+            "Name": "ORACLE 1",
+            "FiberType": 2,
+            "Description": "MPO 17",
+            "LossType": 4,
+            "StdType": 0,
+            "LossThreshType": 2,
+            "PowerUnits": 0,
+            "CatType": 4,
+            "ActualFiberType": 2,
+            "UseType": 0,
+            "Version": null,
+            "CalculationToUse": 1,
+            "LengthThreshType": 0,
+            "Editable": null,
+            "RuleResult": null
+        }
+    ],
+    "Version": "1.1.0.1"
+}
+
+###
