@@ -1,8 +1,7 @@
 ﻿namespace GcfOtdrParser.Models;
 
-using AFL.Luna.Atd.Models.Atd;
 
-public class AtdEntry : AtdFile
+public class AtdEntry 
 {
     public string FilePath { get; set; }
 

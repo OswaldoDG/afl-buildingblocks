@@ -1,0 +1,31 @@
+steps:
+  # This creates the LosEvents topic to bind TabrasaListener cloud function
+  - name: "gcr.io/cloud-builders/gcloud"
+    id: Create Topic ReportsUserToBigQuery
+    entrypoint: /bin/sh
+    args:
+      - "-c"
+      - |
+        if (gcloud pubsub topics list | grep ReportsUserToBigQuery); then  echo 'Existing topic'; else (gcloud pubsub topics create ReportsUserToBigQuery); fi
+  # This creates the ReportsUserToBigQuery Scheduler
+  - name: "gcr.io/cloud-builders/gcloud"
+    id: Cretate Scheduler for ReportsUserToBigQuery
+    entrypoint: /bin/sh
+    args:
+      - "-c"
+      - |
+        if (gcloud scheduler jobs list --project ${_PROJECT_ID} --location ${_LOCATION} | grep ReportsUserToBigQuery) ; then  echo 'Existing scheduler'; else (gcloud scheduler jobs create pubsub ReportsUserToBigQuery --schedule="${_TIMER_CONFIG}" --topic=ReportsUserToBigQuery --message-body="{}" --location=${_LOCATION} --description "ReportsUserToBigQuery" --project ${_PROJECT_ID});  fi
+ # This step publish latest version of Tabrasa ReportsUserToBigQuery
+  - name: gcr.io/cloud-builders/gcloud
+    id: Publish afl-batch-parser
+    args: [ 'functions', 'deploy', 'afl-batch-parser',  '--gen2',
+           '--entry-point', 'GcfOtdrParser.AtdParserFromTopicEvent', 
+           '--runtime', 'dotnet10', 
+           '--region', 'us-central1',
+           '--trigger-topic', 'afl-batchend-trigger', 
+           '--allow-unauthenticated', 
+           '--source', './GcfOtdrParser/', 
+           '--service-account', '${_SERVICE_ACCOUNT}',
+           '--project', '${_PROJECT_ID}',
+           '--max-instances=2'      
+           ] 

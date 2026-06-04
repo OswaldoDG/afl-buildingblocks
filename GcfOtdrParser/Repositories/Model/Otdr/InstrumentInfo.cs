@@ -28,46 +28,4 @@ public class InstrumentInfo
     public string Model { get; set; }
 
     public string SerialNumber { get; set; }
-
-    // public List<VersionInfo> VersionInfos { get; set; } = new ();
-
-    public static List<InstrumentInfo> FromLuna(List<AFL.Luna.Atd.Models.Atd.InstrumentInfo> infos) =>
-        (infos ?? new()).Select(FromLuna).ToList();
-
-    public static List<InstrumentInfo> FromLuna(List<AFL.Luna.Power.Models.InstrumentInfo> infos) =>
-        (infos ?? new()).Select(FromLunaPower).ToList();
-
-    public static InstrumentInfo FromLunaPower(AFL.Luna.Power.Models.InstrumentInfo info)
-    {
-        return new()
-        {
-            CalDate = info.CalDate,
-            TimeStamp = info.TimeStamp,
-            CreatedOrModified = PowerConverters.GetFileModificationTypes(info.CreatedOrModified),
-            InstrumentType = info.InstrumentType,
-            Key = info.Key,
-            LocatedAt = info.LocatedAt,
-            MainOrRemote = PowerConverters.GetUnitModes(info.MainOrRemote),
-            Model = info.Model,
-            SerialNumber = info.SerialNumber,
-            // VersionInfos = VersionInfo.FromLuna(info.VersionInfos)
-        };
-    }
-
-    public static InstrumentInfo FromLuna(AFL.Luna.Atd.Models.Atd.InstrumentInfo info)
-    {
-        return new()
-        {
-            CalDate = info.CalDate,
-            TimeStamp = info.TimeStamp,
-            CreatedOrModified = PowerConverters.GetFileModificationTypes(info.CreatedOrModified),
-            InstrumentType = info.InstrumentType,
-            Key = info.Key,
-            LocatedAt = info.LocatedAt,
-            MainOrRemote = PowerConverters.GetUnitModes(info.MainOrRemote),
-            Model = info.Model,
-            SerialNumber = info.SerialNumber,
-            // VersionInfos = VersionInfo.FromLuna(info.VersionInfos)
-        };
-    }
 }

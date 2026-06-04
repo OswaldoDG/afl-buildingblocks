@@ -1,8 +1,5 @@
 namespace GcfOtdrParser;
 
-using AFL.Luna.Atd;
-using AFL.Luna.Atd.Models.Atd;
-using AFL.Luna.Power.Extensions;
 using CloudNative.CloudEvents;
 using GcfOtdrParser.Services;
 using Google.Cloud.Functions.Framework;
@@ -37,27 +34,28 @@ public class AtdParserFromBucketEvent(ILogger<AtdParserFromBucketEvent> logger) 
         try
         {
             var reader = await ReadFile(data.Bucket, data.Name);
+            logger.LogInformation("File {FileName} in bucket {BucketName} processed successfully", data.Name, data.Bucket);
 
-            AtdFile atdFile = AtdDecoder.DecodeATDFile(reader);
-            var fibers = atdFile.GetCertFibers();
-            var isValidOlts = fibers.Any(a => !a.IsValidOlts);
+            //AtdFile atdFile = AtdDecoder.DecodeATDFile(reader);
+            //var fibers = atdFile.GetCertFibers();
+            //var isValidOlts = fibers.Any(a => !a.IsValidOlts);
 
-            if (!isValidOlts)
-            {
-                logger.LogInformation("File {FileName} in bucket {BucketName} does not contain valid OLTS, skipping", data.Name, data.Bucket);
-            }
+            //if (!isValidOlts)
+            //{
+            //    logger.LogInformation("File {FileName} in bucket {BucketName} does not contain valid OLTS, skipping", data.Name, data.Bucket);
+            //}
 
-            logger.LogInformation("File {FileName} in bucket {BucketName} valid OLTS", data.Name, data.Bucket);
+            //logger.LogInformation("File {FileName} in bucket {BucketName} valid OLTS", data.Name, data.Bucket);
 
-            OtdrApiLCient apiLCient = new (logger);
-            var token = await apiLCient.DescopeLogin();
+            //OtdrApiLCient apiLCient = new (logger);
+            //var token = await apiLCient.DescopeLogin();
 
-            if (!string.IsNullOrEmpty(token))
-            {
-                var atdEntry = atdFile.ToAdtEntry(data.Name, Path.GetFileName(data.Name));
-                await apiLCient.PostAtdEntry(atdEntry);
-                logger.LogInformation("File {FileName} in bucket {BucketName} processed successfully", data.Name, data.Bucket);
-            }
+            //if (!string.IsNullOrEmpty(token))
+            //{
+            //    var atdEntry = atdFile.ToAdtEntry(data.Name, Path.GetFileName(data.Name));
+            //    await apiLCient.PostAtdEntry(atdEntry);
+            //    logger.LogInformation("File {FileName} in bucket {BucketName} processed successfully", data.Name, data.Bucket);
+            //}
         }
         catch (Exception ex)
         {

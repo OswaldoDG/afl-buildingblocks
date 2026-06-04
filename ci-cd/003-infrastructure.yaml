@@ -1,0 +1,9 @@
+steps:
+  # This creates the LosEvents topic to bind TabrasaListener cloud function
+  - name: "gcr.io/cloud-builders/gcloud"
+    id: Create Topic afl-batchend-trigger
+    entrypoint: /bin/sh
+    args:
+      - "-c"
+      - |
+        if (gcloud pubsub topics list | grep afl-batchend-trigger); then  echo 'Existing topic'; else (gcloud pubsub topics create afl-batchend-trigger); fi
