@@ -60,7 +60,7 @@ steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     id: 'Revoke Runner IP'
     entrypoint: 'bash'
-    waitFor: ['Deploy to GKE Cluster']
+    waitFor: ['API Deploy']
     args:
       - '-c'
       - |
