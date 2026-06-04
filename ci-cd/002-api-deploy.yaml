@@ -10,25 +10,24 @@ steps:
         echo "Current Cloud Build runner public IP is: $(cat runner_ip.txt)"
 
   # Step 2: Authorize the runner's IP in the GKE Cluster Control Plane
-  - name: 'gcr.io/cloud-builders/gcloud'
+- name: 'gcr.io/cloud-builders/gcloud'
     id: 'Authorize Runner IP'
     entrypoint: 'bash'
     args:
       - '-c'
       - |
-        $RUNNER_IP=$(cat runner_ip.txt)
-        echo "Adding $RUNNER_IP/32 to GKE Authorized Networks..."
+        RUNNER_IP=$(cat runner_ip.txt)
+        echo "Adding $$RUNNER_IP/32 to GKE Authorized Networks..."
         
-        # Pull existing authorized networks so we don't overwrite them
+        # Notice the double $$ for the local bash variables
         EXISTING_NETWORKS=$(gcloud container clusters describe afl-cluster-1 \
           --region=us-central1 \
           --format="value(masterAuthorizedNetworksConfig.cidrBlocks.cidrBlock)" | tr '\n' ',')
         
-        # Append the current runner IP to the network block list
         gcloud container clusters update afl-cluster-1 \
           --region=us-central1 \
           --enable-master-authorized-networks \
-          --master-authorized-networks="${EXISTING_NETWORKS}${RUNNER_IP}/32"
+          --master-authorized-networks="$${EXISTING_NETWORKS}$${RUNNER_IP}/32"
 
   # Step 3: Connect to GKE and Apply Kubernetes Manifests
   # - name: 'gcr.io/cloud-builders/kubectl'
@@ -66,18 +65,16 @@ steps:
       - '-c'
       - |
         RUNNER_IP=$(cat runner_ip.txt)
-        echo "Removing $RUNNER_IP/32 from GKE Authorized Networks..."
+        echo "Removing $$RUNNER_IP/32 from GKE Authorized Networks..."
         
-        # Re-fetch existing blocks and strip out the temporary runner IP
         CLEANED_NETWORKS=$(gcloud container clusters describe afl-cluster-1 \
           --region=us-central1 \
-          --format="value(masterAuthorizedNetworksConfig.cidrBlocks.cidrBlock)" | grep -v "$RUNNER_IP" | tr '\n' ',' | sed 's/,$//')
+          --format="value(masterAuthorizedNetworksConfig.cidrBlocks.cidrBlock)" | grep -v "$$RUNNER_IP" | tr '\n' ',' | sed 's/,$//')
         
-        if [ -z "$CLEANED_NETWORKS" ]; then
-          # If no networks are left, you can disable the block completely or leave it blank based on policy
+        if [ -z "$$CLEANED_NETWORKS" ]; then
           gcloud container clusters update afl-cluster-1 --region=us-central1 --no-enable-master-authorized-networks
         else
-          gcloud container clusters update afl-cluster-1 --region=us-central1 --master-authorized-networks="$CLEANED_NETWORKS"
+          gcloud container clusters update afl-cluster-1 --region=us-central1 --master-authorized-networks="$$CLEANED_NETWORKS"
         fi
 
 options:
