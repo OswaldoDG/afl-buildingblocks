@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: afl-api
+  labels:
+    app: afl-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: afl-api
+  template:
+    metadata:
+      labels:
+        app: afl-api
+    spec:
+      containers:
+      - name: poc-api
+        image: us-central1-docker.pkg.dev/conta-bee/afl-bb/afl-bb:latest
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8080 # Default port for .NET 8+ / .NET 2026 containers
+        env:
+          - name: ASPNETCORE_ENVIRONMENT
+            value: "Production"
+          - name: ASPNETCORE_URLS
+            value: "http://+:8080"

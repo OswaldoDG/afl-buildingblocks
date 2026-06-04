@@ -4,7 +4,7 @@ steps:
     id: 'Build Docker Image'
     args: [
       'build', 
-      '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/afl-bb/afl-bb:$SHORT_SHA', 
+      '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/afl-bb/afl-bb:latest', 
       "-f",
       "./CloudReportsBuildingBlocksPOC/Dockerfile",
       '.'
@@ -15,12 +15,12 @@ steps:
     id: 'Push Docker Image'
     args: [
       'push', 
-      'us-central1-docker.pkg.dev/$PROJECT_ID/afl-bb/afl-bb:$SHORT_SHA'
+      'us-central1-docker.pkg.dev/$PROJECT_ID/afl-bb/afl-bb:latest'
     ]
 
 # Optional: Declare images to explicitly list them in the Cloud Build UI artifacts panel
 images:
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/afl-bb/afl-bb:$SHORT_SHA'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/afl-bb/afl-bb:latest'
 
 options:
   # Using user-managed or default service accounts requires setting logging preferences explicitly

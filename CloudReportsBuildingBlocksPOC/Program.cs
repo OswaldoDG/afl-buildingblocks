@@ -160,7 +160,7 @@ public class Program
         app.UseSecurityContext();
 
         // Execute DB migrations.
-        app.MigrateDatabase();
+        // app.MigrateDatabase();
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())

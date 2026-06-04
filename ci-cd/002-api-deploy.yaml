@@ -1,0 +1,84 @@
+steps:
+  # Step 1: Fetch the current Cloud Build runner's ephemeral public IP
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Fetch Runner IP'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        curl -s https://api.ipify.org > runner_ip.txt
+        echo "Current Cloud Build runner public IP is: $(cat runner_ip.txt)"
+
+  # Step 2: Authorize the runner's IP in the GKE Cluster Control Plane
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Authorize Runner IP'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        RUNNER_IP=$(cat runner_ip.txt)
+        echo "Adding $RUNNER_IP/32 to GKE Authorized Networks..."
+        
+        # Pull existing authorized networks so we don't overwrite them
+        EXISTING_NETWORKS=$(gcloud container clusters describe afl-cluster-1 \
+          --region=us-central1 \
+          --format="value(masterAuthorizedNetworksConfig.cidrBlocks.cidrBlock)" | tr '\n' ',')
+        
+        # Append the current runner IP to the network block list
+        gcloud container clusters update afl-cluster-1 \
+          --region=us-central1 \
+          --enable-master-authorized-networks \
+          --master-authorized-networks="${EXISTING_NETWORKS}${RUNNER_IP}/32"
+
+  # Step 3: Connect to GKE and Apply Kubernetes Manifests
+  # - name: 'gcr.io/cloud-builders/kubectl'
+  #   id: 'Deploy to GKE Cluster'
+  #   entrypoint: 'bash'
+  #   env:
+  #     - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+  #     - 'CLOUDSDK_CONTAINER_CLUSTER=afl-cluster-1'
+  #   args:
+  #     - '-c'
+  #     - |
+  #       # Secure cluster access credentials 
+  #       gcloud container clusters get-credentials afl-cluster-1 --region=us-central1
+        
+  #       # Perform deployment updates (Using the image built from the previous pipeline run)
+  #       # Replacing 'my-deployment-name' and 'my-container-name' with your manifest definitions
+  #       kubectl set image deployment/my-deployment-name my-container-name=us-central1-docker.pkg.dev/$PROJECT_ID/my-docker-repo/my-app:$SHORT_SHA
+
+  - name: 'gcr.io/cloud-builders/kubectl'
+    id: 'API Deploy'
+    env:
+      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=afl-cluster-1'
+    args:
+    - 'apply'
+    - '-f'
+    - 'ci-cd/configuration/api.yaml'
+
+  # Step 4: Clean up and strip the ephemeral IP (Runs regardless of Step 3 success/failure)
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'Revoke Runner IP'
+    entrypoint: 'bash'
+    waitFor: ['Deploy to GKE Cluster']
+    args:
+      - '-c'
+      - |
+        RUNNER_IP=$(cat runner_ip.txt)
+        echo "Removing $RUNNER_IP/32 from GKE Authorized Networks..."
+        
+        # Re-fetch existing blocks and strip out the temporary runner IP
+        CLEANED_NETWORKS=$(gcloud container clusters describe afl-cluster-1 \
+          --region=us-central1 \
+          --format="value(masterAuthorizedNetworksConfig.cidrBlocks.cidrBlock)" | grep -v "$RUNNER_IP" | tr '\n' ',' | sed 's/,$//')
+        
+        if [ -z "$CLEANED_NETWORKS" ]; then
+          # If no networks are left, you can disable the block completely or leave it blank based on policy
+          gcloud container clusters update afl-cluster-1 --region=us-central1 --no-enable-master-authorized-networks
+        else
+          gcloud container clusters update afl-cluster-1 --region=us-central1 --master-authorized-networks="$CLEANED_NETWORKS"
+        fi
+
+options:
+  logging: CLOUD_LOGGING_ONLY
