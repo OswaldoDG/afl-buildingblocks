@@ -19,10 +19,10 @@ steps:
         RUNNER_IP=$(cat runner_ip.txt)
         echo "Adding $$RUNNER_IP/32 to GKE Authorized Networks..."
         
-        # Notice the double $$ for the local bash variables
-        EXISTING_NETWORKS=$(gcloud container clusters describe afl-cluster-1 \
-          --region=us-central1 \
-          --format="value(masterAuthorizedNetworksConfig.cidrBlocks.cidrBlock)" | tr '\n' ',')
+        # # Notice the double $$ for the local bash variables
+        # EXISTING_NETWORKS=$(gcloud container clusters describe afl-cluster-1 \
+        #   --region=us-central1 \
+        #   --format="value(masterAuthorizedNetworksConfig.cidrBlocks.cidrBlock)" | tr '\n' ',')
         
         gcloud container clusters update afl-cluster-1 \
           --region=us-central1 \
