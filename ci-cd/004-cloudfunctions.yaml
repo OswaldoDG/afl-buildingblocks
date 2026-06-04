@@ -4,12 +4,12 @@ steps:
     id: Publish afl-batch-parser
     args: [ 'functions', 'deploy', 'afl-batch-parser',  '--gen2',
            '--entry-point', 'GcfOtdrParser.AtdParserFromTopicEvent', 
-           '--runtime', 'dotnet10', 
+           '--runtime', 'dotnet8', 
            '--region', 'us-central1',
            '--trigger-topic', 'afl-batchend-trigger', 
            '--allow-unauthenticated', 
            '--source', './GcfOtdrParser/', 
            '--service-account', '${_SERVICE_ACCOUNT}',
            '--project', '${_PROJECT_ID}',
-           '--max-instances=2'      
+ 
            ] 
