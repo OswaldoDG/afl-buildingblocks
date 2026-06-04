@@ -31,8 +31,8 @@ public partial class OtdrService
 
             foreach (var job in entry.Jobs)
             {
-                job.AtdEntryId = entry.AtdEntryId;
-                await repoJobs.InsertAsync(job);
+                //job.AtdEntryId = entry.AtdEntryId;
+                //await repoJobs.InsertAsync(job);
             }
         }
         catch (Exception ex)
